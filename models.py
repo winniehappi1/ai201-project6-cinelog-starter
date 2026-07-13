@@ -49,6 +49,12 @@ class Film(db.Model):
             "poster_url": self.poster_url,
             "average_rating": self.average_rating,
         }
+    
+    watchlist_entries = db.relationship(
+        "WatchlistEntry",
+        backref="film",
+        lazy=True,
+        )
 
 
 class CollectionEntry(db.Model):
